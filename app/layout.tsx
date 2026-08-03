@@ -8,18 +8,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   openGraph: {
-    title: "Luka Service - najpierw diagnoza, potem decyzja",
+    title: "Luka Service - najpierw diagnoza, potem uczciwa naprawa",
     description: "Profesjonalny warsztat samochodowy w Warszawie-Włochach. Jasna wycena przed naprawą.",
     type: "website",
     locale: "pl_PL",
     url: "/",
     siteName: "Luka Service",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Luka Service - najpierw diagnoza, potem decyzja" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Luka Service - najpierw diagnoza, potem uczciwa naprawa" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Luka Service - Warszawa-Włochy",
-    description: "Najpierw diagnoza i jasna wycena. Potem decyzja.",
+    description: "Najpierw diagnoza i jasna wycena. Potem uczciwa naprawa.",
     images: ["/og.png"],
   },
 };

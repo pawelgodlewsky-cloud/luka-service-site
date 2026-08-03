@@ -178,8 +178,7 @@ export default function Home() {
       <a className="skip-link" href="#main">Przejdź do treści</a>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Luka Service - strona główna">
-          <span className="brand__mark" aria-hidden="true"><i /></span>
-          <span className="brand__name">LUKA SERVICE<small>WARSZAWA-WŁOCHY</small></span>
+          <img className="brand__logo" src="/brand/luka-service-logo.png" alt="" width="900" height="270" />
         </a>
         <button
           className="menu-toggle"
@@ -224,18 +223,18 @@ export default function Home() {
           <div className="hero__shade" />
           <div className="hero__content">
             <p className="eyebrow hero-sequence hero-sequence--1">Mechanik samochodowy • Warszawa-Włochy</p>
-            <h1 className="hero-sequence hero-sequence--2">Najpierw diagnoza.<br /><em>Potem decyzja.</em></h1>
+            <h1 className="hero-sequence hero-sequence--2">Najpierw diagnoza.<br /><em>Potem uczciwa naprawa.</em></h1>
             <p className="hero__lead hero-sequence hero-sequence--3">
-              Pełny zakres usług z pierwotnej oferty Luka Service. Sprawdzamy samochód, przedstawiamy koszt i zaczynamy pracę dopiero po Twojej akceptacji.
+              Sprawdzamy samochód, wyjaśniamy przyczynę i podajemy koszt. Naprawę zaczynamy dopiero po Twojej akceptacji.
             </p>
             <div className="hero__actions hero-sequence hero-sequence--4">
-              <a className="button button--copper" href="tel:+48690266302">Zadzwoń teraz</a>
-              <a className="button button--glass" href="#uslugi">Zobacz usługi</a>
+              <a className="button button--copper" href="tel:+48690266302">Zadzwoń i umów termin</a>
+              <a className="button button--glass" href="#uslugi">Sprawdź usługi</a>
             </div>
             <p className="hero__promise hero-sequence hero-sequence--5"><i /> Bez dodatkowych prac bez zgody klienta</p>
           </div>
           <div className="service-rail" aria-hidden="true">
-            <span>SERWIS / 01</span><i /><b />
+            <span>PROCES / DIAGNOZA</span><i /><b />
           </div>
           <a className="scroll-cue" href="#uslugi" aria-label="Przewiń do usług"><span>Przewiń</span><i /></a>
         </section>
@@ -343,8 +342,7 @@ export default function Home() {
         <section id="kontakt" className="contact-section">
           <div className="contact-copy" data-reveal>
             <a className="brand brand--light" href="#top" aria-label="Luka Service - wróć na górę">
-              <span className="brand__mark" aria-hidden="true"><i /></span>
-              <span className="brand__name">LUKA SERVICE<small>WARSZAWA-WŁOCHY</small></span>
+              <img className="brand__logo" src="/brand/luka-service-logo-reverse.png" alt="" width="900" height="270" loading="lazy" />
             </a>
             <p className="eyebrow eyebrow--copper">Kontakt i lokalizacja</p>
             <h2>Opisz objawy.<br />My zaproponujemy kolejny krok.</h2>
