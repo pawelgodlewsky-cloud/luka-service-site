@@ -3,23 +3,23 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lukaservice.pl"),
-  title: "Mechanik samochodowy Warszawa-Włochy | Luka Service",
-  description: "Mechanik samochodowy Warszawa-Włochy. Diagnostyka, naprawa silnika, hamulców i zawieszenia. Wycena przed naprawą. Zadzwoń: 690 266 302.",
+  title: "Mechanik Warszawa Włochy | Warsztat Luka Service",
+  description: "Warsztat samochodowy na warszawskich Włochach. Diagnostyka, hamulce, zawieszenie, rozrząd i naprawy silnika. Zadzwoń: 690 266 302.",
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   openGraph: {
-    title: "Luka Service - najpierw diagnoza, potem uczciwa naprawa",
-    description: "Warsztat samochodowy Warszawa-Włochy: diagnostyka, naprawa silnika, hamulców i zawieszenia. Jasna wycena przed naprawą.",
+    title: "Luka Service | Mechanik na warszawskich Włochach",
+    description: "Diagnostyka, serwis i naprawy samochodów przy ul. Pianistów 10B. Zakres prac i koszt ustalamy przed naprawą.",
     type: "website",
     locale: "pl_PL",
     url: "/",
     siteName: "Luka Service",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Luka Service - najpierw diagnoza, potem uczciwa naprawa" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Luka Service, warsztat samochodowy na warszawskich Włochach" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luka Service - Warszawa-Włochy",
-    description: "Najpierw diagnoza i jasna wycena. Potem uczciwa naprawa.",
+    title: "Luka Service | Warszawa Włochy",
+    description: "Diagnostyka, serwis i naprawy samochodów przy ul. Pianistów 10B.",
     images: ["/og.png"],
   },
 };

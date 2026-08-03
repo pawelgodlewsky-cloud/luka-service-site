@@ -21,9 +21,9 @@ test("server-renders the Luka Service landing page", async () => {
 
   const html = await response.text();
   assert.match(html, /<html lang="pl">/i);
-  assert.match(html, /Mechanik samochodowy Warszawa-Włochy \| Luka Service/i);
-  assert.match(html, /Najpierw diagnoza/);
-  assert.match(html, /Pełna oferta/);
+  assert.match(html, /Mechanik Warszawa Włochy \| Warsztat Luka Service/i);
+  assert.match(html, /Najpierw sprawdzamy/);
+  assert.match(html, /Pełny zakres usług/);
   assert.match(html, /Pianistów 10B/);
   assert.match(html, /"@type":"AutoRepair"/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
@@ -39,6 +39,7 @@ test("keeps production assets and metadata in place", async () => {
 
   assert.match(page, /data-reveal/);
   assert.match(styles, /prefers-reduced-motion/);
+  assert.match(styles, /\.service-card:is\(:hover, :focus-visible\)/);
   assert.match(page, /application\/ld\+json/);
   assert.match(layout, /\/og\.png/);
   assert.match(layout, /canonical/);
