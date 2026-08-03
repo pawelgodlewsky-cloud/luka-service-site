@@ -27,6 +27,8 @@ test("server-renders the Luka Service landing page", async () => {
   assert.match(html, /Pianistów 10B/);
   assert.match(html, /google\.com\/maps\?q=Pianist%C3%B3w%2010B[^\"]+output=embed/);
   assert.match(html, /Mapa dojazdu do warsztatu Luka Service/);
+  assert.match(html, /Tak wygląda praca w Luka Service/);
+  assert.match(html, /\/workshop\/diagnostyka\.webp/);
   assert.match(html, /"@type":"AutoRepair"/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
@@ -50,6 +52,10 @@ test("keeps production assets and metadata in place", async () => {
   await Promise.all([
     access(new URL("../public/hero-workshop.webp", import.meta.url)),
     access(new URL("../public/transparent-process.webp", import.meta.url)),
+    access(new URL("../public/workshop/diagnostyka.webp", import.meta.url)),
+    access(new URL("../public/workshop/hamulce.webp", import.meta.url)),
+    access(new URL("../public/workshop/zawieszenie.webp", import.meta.url)),
+    access(new URL("../public/workshop/naprawa-silnika.webp", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
     access(new URL("../public/favicon.png", import.meta.url)),
   ]);

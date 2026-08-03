@@ -62,6 +62,37 @@ const commonRepairs = [
   },
 ];
 
+const workshopPhotos = [
+  {
+    src: "/workshop/hamulce.webp",
+    width: 1000,
+    height: 1500,
+    alt: "Mechanik Luka Service sprawdzający układ hamulcowy samochodu",
+    label: "Kontrola układu hamulcowego",
+  },
+  {
+    src: "/workshop/diagnostyka.webp",
+    width: 1400,
+    height: 933,
+    alt: "Diagnostyka samochodu wykonywana testerem w Luka Service",
+    label: "Diagnostyka samochodowa",
+  },
+  {
+    src: "/workshop/zawieszenie.webp",
+    width: 1000,
+    height: 1500,
+    alt: "Mechanik sprawdzający zawieszenie samochodu na podnośniku",
+    label: "Sprawdzenie zawieszenia",
+  },
+  {
+    src: "/workshop/naprawa-silnika.webp",
+    width: 1000,
+    height: 1499,
+    alt: "Praca przy rozebranym silniku samochodowym w warsztacie",
+    label: "Naprawa silnika",
+  },
+];
+
 const serviceGroups = [
   {
     id: "diagnostyka",
@@ -355,6 +386,24 @@ export default function Home() {
           <div className="repair-index__cta" data-reveal>
             <p><strong>Nie musisz znać nazwy usterki.</strong> Powiedz, co słyszysz, widzisz lub czujesz podczas jazdy.</p>
             <a className="button button--copper" href="tel:+48690266302">Zadzwoń do warsztatu</a>
+          </div>
+        </section>
+
+        <section className="workshop-proof" aria-labelledby="warsztat-od-srodka">
+          <div className="workshop-proof__heading" data-reveal>
+            <div>
+              <p className="eyebrow eyebrow--copper">Z naszego warsztatu</p>
+              <h2 id="warsztat-od-srodka">Tak wygląda praca w Luka Service.</h2>
+            </div>
+            <p>Diagnostyka, hamulce, zawieszenie i naprawy silnika. Poniżej pokazujemy prawdziwe ujęcia z pracy przy samochodach naszych klientów.</p>
+          </div>
+          <div className="workshop-gallery">
+            {workshopPhotos.map((photo, index) => (
+              <figure key={photo.src} data-reveal style={{ "--delay": `${index * 80}ms` } as React.CSSProperties}>
+                <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 

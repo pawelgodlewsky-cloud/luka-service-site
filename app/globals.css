@@ -182,6 +182,20 @@ img { display: block; max-width: 100%; }
 .repair-index__cta p { margin: 0; color: rgba(255,255,255,.72); }
 .repair-index__cta strong { color: var(--white); }
 
+.workshop-proof { padding: clamp(90px, 10vw, 150px) clamp(28px, 7vw, 120px); color: var(--white); background: var(--ink); }
+.workshop-proof__heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .65fr); align-items: end; gap: 9vw; }
+.workshop-proof__heading h2 { max-width: 760px; margin: 0; font: 520 clamp(43px, 5.2vw, 76px)/.98 var(--display); letter-spacing: -.045em; }
+.workshop-proof__heading > p { margin: 0; color: rgba(255,255,255,.58); font-size: 17px; line-height: 1.7; }
+.workshop-gallery { display: grid; grid-template-columns: 1.15fr .85fr .85fr; grid-template-rows: repeat(2, minmax(270px, 340px)); gap: 12px; margin-top: 68px; }
+.workshop-gallery figure { position: relative; min-width: 0; min-height: 0; margin: 0; overflow: hidden; background: #10232c; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; }
+.workshop-gallery figure:nth-child(1) { grid-row: 1 / 3; }
+.workshop-gallery figure:nth-child(2) { grid-column: 2 / 4; }
+.workshop-gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+.workshop-gallery figure::after { content: ""; position: absolute; inset: 42% 0 0; background: linear-gradient(transparent, rgba(7,18,24,.78)); pointer-events: none; }
+.workshop-gallery figure:hover img { filter: saturate(1.06); transform: scale(1.035); }
+.workshop-gallery figcaption { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 21px; display: flex; align-items: center; gap: 13px; color: var(--white); font: 600 15px/1.3 var(--display); }
+.workshop-gallery figcaption span { color: var(--copper-light); font: 700 10px/1 var(--body); letter-spacing: .14em; }
+
 [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .75s cubic-bezier(.2,.7,.2,1) var(--delay, 0ms), transform .75s cubic-bezier(.2,.7,.2,1) var(--delay, 0ms); }
 [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
@@ -276,6 +290,11 @@ img { display: block; max-width: 100%; }
   .local-intro__facts div:nth-child(2) { border-top: 0; }
   .local-intro__facts div:nth-child(even) { padding-left: 26px; border-left: 1px solid rgba(255,255,255,.12); }
   .repair-index__grid { grid-template-columns: repeat(2, 1fr); }
+  .workshop-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 360px 300px 300px; }
+  .workshop-gallery figure:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+  .workshop-gallery figure:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .workshop-gallery figure:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .workshop-gallery figure:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
   .process-section { grid-template-columns: 1fr; }
   .process-track { margin-top: 30px; }
   .estimate-section { grid-template-columns: .9fr 1.1fr; }
@@ -310,6 +329,7 @@ img { display: block; max-width: 100%; }
   .trust-strip > div:nth-child(-n+2) { border-top: 0; }
   .section-heading { grid-template-columns: 1fr; gap: 28px; }
   .repair-index__heading { grid-template-columns: 1fr; gap: 28px; }
+  .workshop-proof__heading { grid-template-columns: 1fr; gap: 28px; }
   .local-intro__facts { grid-template-columns: 1fr; }
   .local-intro__facts div:nth-child(2) { border-top: 1px solid rgba(255,255,255,.12); }
   .local-intro__facts div:nth-child(even) { padding-left: 0; border-left: 0; }
@@ -343,6 +363,10 @@ img { display: block; max-width: 100%; }
   .repair-index__grid { grid-template-columns: 1fr; }
   .repair-index__grid article { min-height: 300px; }
   .repair-index__cta { align-items: stretch; flex-direction: column; }
+  .workshop-proof { padding: 88px 20px; }
+  .workshop-proof__heading h2 { font-size: clamp(38px, 11vw, 52px); }
+  .workshop-gallery { grid-template-columns: 1fr; grid-template-rows: none; gap: 10px; margin-top: 46px; }
+  .workshop-gallery figure:nth-child(n) { grid-column: 1; grid-row: auto; height: 330px; }
   .process-section { padding: 88px 20px; }
   .process-track { grid-template-columns: 1fr; gap: 38px; }
   .process-track__line { left: 15px; right: auto; top: 12px; bottom: 12px; width: 1px; height: auto; }
