@@ -4,12 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://lukaservice.pl"),
   title: "Mechanik samochodowy Warszawa-Włochy | Luka Service",
-  description: "Luka Service przy ul. Pianistów 10B. Diagnostyka, obsługa serwisowa, naprawy mechaniczne i pomoc mobilna. Wycena przed rozpoczęciem pracy.",
+  description: "Mechanik samochodowy Warszawa-Włochy. Diagnostyka, naprawa silnika, hamulców i zawieszenia. Wycena przed naprawą. Zadzwoń: 690 266 302.",
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   openGraph: {
     title: "Luka Service - najpierw diagnoza, potem uczciwa naprawa",
-    description: "Profesjonalny warsztat samochodowy w Warszawie-Włochach. Jasna wycena przed naprawą.",
+    description: "Warsztat samochodowy Warszawa-Włochy: diagnostyka, naprawa silnika, hamulców i zawieszenia. Jasna wycena przed naprawą.",
     type: "website",
     locale: "pl_PL",
     url: "/",

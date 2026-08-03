@@ -29,6 +29,39 @@ const services = [
   },
 ];
 
+const commonRepairs = [
+  {
+    title: "Naprawa silnika i rozrządu",
+    text: "Sprawdzamy przyczynę nierównej pracy, wycieków, przegrzewania lub spadku mocy. Wykonujemy m.in. remonty silnika, wymianę uszczelki pod głowicą i obsługę rozrządu.",
+    href: "#naprawa-silnika",
+  },
+  {
+    title: "Hamulce i elementy bezpieczeństwa",
+    text: "Kontrolujemy zużycie i wymieniamy klocki, tarcze, szczęki oraz elementy hamulca postojowego. Zakres prac ustalamy po oględzinach samochodu.",
+    href: "#obsluga-serwisowa",
+  },
+  {
+    title: "Zawieszenie i układ kierowniczy",
+    text: "Usuwamy luzy, stuki i problemy z prowadzeniem auta. Wymieniamy tuleje, sworznie, amortyzatory, sprężyny, łożyska oraz elementy układu kierowniczego.",
+    href: "#obsluga-serwisowa",
+  },
+  {
+    title: "Olej, filtry i płyny eksploatacyjne",
+    text: "Wykonujemy bieżący serwis olejowy, wymianę filtrów oraz płynów. Obsługujemy także olej w skrzyni biegów i dyferencjałach.",
+    href: "#obsluga-serwisowa",
+  },
+  {
+    title: "DPF, układ wydechowy i turbina",
+    text: "Sprawdzamy objawy spadku mocy, dymienia i problemów z filtrem DPF. W zakresie usług mamy czyszczenie DPF, naprawy wydechu oraz wymianę turbosprężarki.",
+    href: "#obsluga-serwisowa",
+  },
+  {
+    title: "Sprawdzenie samochodu przed zakupem",
+    text: "Przed podjęciem decyzji o zakupie pomagamy ocenić stan auta i wskazać usterki wymagające dalszej weryfikacji lub naprawy.",
+    href: "#diagnostyka",
+  },
+];
+
 const serviceGroups = [
   {
     id: "diagnostyka",
@@ -115,6 +148,9 @@ const faqs = [
   ["Czy mechanik może przyjechać do auta?", "Tak, po wcześniejszym kontakcie. Najpierw ustalamy objawy i lokalizację, aby ocenić, czy naprawa na miejscu jest możliwa."],
   ["Jak przygotować się do wizyty?", "Wystarczy podać model auta, opisać objawy i powiedzieć, kiedy problem występuje. Jeśli masz wcześniejsze wyniki diagnostyki, zabierz je ze sobą."],
   ["Czy wykonujecie diagnostykę przed zakupem?", "Tak. Zakres sprawdzenia i termin ustalamy telefonicznie przed wizytą."],
+  ["Czy obsługujecie kierowców z Ursusa i Ochoty?", "Warsztat znajduje się przy ul. Pianistów 10B we Włochach. Korzystają z niego również kierowcy z Ursusa, Ochoty i sąsiednich części Warszawy."],
+  ["Czy można umówić wymianę oleju, hamulców lub naprawę zawieszenia?", "Tak. Te prace znajdują się w naszej ofercie. Zadzwoń i opisz samochód oraz potrzebny zakres, a ustalimy kolejny krok i możliwy termin."],
+  ["Kiedy warto sprawdzić rozrząd?", "Rozrząd należy kontrolować zgodnie z zaleceniami producenta. Jeżeli nie znasz historii serwisowej auta, słychać niepokojące odgłosy albo zbliża się zalecany przebieg lub termin wymiany, umów sprawdzenie samochodu."],
 ];
 
 const jsonLd = {
@@ -125,20 +161,37 @@ const jsonLd = {
   url: "https://lukaservice.pl/",
   telephone: "+48690266302",
   image: "https://lukaservice.pl/hero-workshop.webp",
+  description: "Warsztat samochodowy Luka Service w Warszawie-Włochach. Diagnostyka, bieżąca obsługa serwisowa, naprawy mechaniczne, naprawa silnika i pomoc mobilna po kontakcie.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Pianistów 10B",
     postalCode: "02-403",
     addressLocality: "Warszawa",
+    addressRegion: "mazowieckie",
     addressCountry: "PL",
   },
-  areaServed: ["Warszawa-Włochy", "Ursus", "Ochota"],
+  areaServed: ["Warszawa", "Warszawa-Włochy", "Ursus", "Ochota"].map((name) => ({
+    "@type": "Place",
+    name,
+  })),
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+48690266302",
+    contactType: "rezerwacja wizyty",
+    areaServed: "PL",
+    availableLanguage: "pl",
+  },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Usługi Luka Service",
-    itemListElement: services.slice(0, 3).map((service) => ({
-      "@type": "OfferCatalog",
-      name: service.title,
+    itemListElement: commonRepairs.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        serviceType: service.title,
+        areaServed: "Warszawa",
+      },
     })),
   },
 };
@@ -222,8 +275,8 @@ export default function Home() {
           />
           <div className="hero__shade" />
           <div className="hero__content">
-            <p className="eyebrow hero-sequence hero-sequence--1">Mechanik samochodowy • Warszawa-Włochy</p>
-            <h1 className="hero-sequence hero-sequence--2">Najpierw diagnoza.<br /><em>Potem uczciwa naprawa.</em></h1>
+            <p className="eyebrow hero-sequence hero-sequence--1">Luka Service • Pianistów 10B</p>
+            <h1 className="hero-sequence hero-sequence--2"><span>Mechanik samochodowy Warszawa-Włochy</span>Najpierw diagnoza.<br /><em>Potem uczciwa naprawa.</em></h1>
             <p className="hero__lead hero-sequence hero-sequence--3">
               Sprawdzamy samochód, wyjaśniamy przyczynę i podajemy koszt. Naprawę zaczynamy dopiero po Twojej akceptacji.
             </p>
@@ -246,6 +299,25 @@ export default function Home() {
           <div><span className="trust-strip__icon">L</span><strong>Warszawa-Włochy</strong><small>Pianistów 10B</small></div>
         </section>
 
+        <section className="section local-intro" aria-labelledby="warsztat-wlochy">
+          <div className="local-intro__copy" data-reveal>
+            <p className="eyebrow eyebrow--copper">Lokalny warsztat samochodowy</p>
+            <h2 id="warsztat-wlochy">Mechanik w Warszawie-Włochach, który najpierw szuka przyczyny.</h2>
+            <p>
+              Luka Service to warsztat samochodowy przy ul. Pianistów 10B w Warszawie. Pomagamy w bieżącej obsłudze auta, naprawach mechanicznych, serwisie silnika oraz sprawdzeniu samochodu przed zakupem.
+            </p>
+            <p>
+              Z warsztatu korzystają kierowcy z Włoch, Ursusa, Ochoty i sąsiednich części Warszawy. Jeśli samochód nie odpala, możliwość dojazdu mechanika i naprawy na miejscu ustalamy telefonicznie po opisaniu objawów.
+            </p>
+          </div>
+          <dl className="local-intro__facts" data-reveal>
+            <div><dt>Adres warsztatu</dt><dd>Pianistów 10B<br />02-403 Warszawa</dd></div>
+            <div><dt>Główna zasada</dt><dd>Najpierw diagnoza i wycena, potem decyzja o naprawie</dd></div>
+            <div><dt>Obsługiwany obszar</dt><dd>Warszawa-Włochy, Ursus, Ochota i okolice</dd></div>
+            <div><dt>Kontakt</dt><dd><a href="tel:+48690266302">+48 690 266 302</a></dd></div>
+          </dl>
+        </section>
+
         <section id="uslugi" className="section services-section">
           <div className="section-heading" data-reveal>
             <div><p className="eyebrow eyebrow--copper">Z czym możemy pomóc</p><h2>Usługi nazwane tak,<br />jak szuka ich kierowca.</h2></div>
@@ -260,6 +332,27 @@ export default function Home() {
                 <span className="service-card__link">Poznaj zakres <i>↗</i></span>
               </a>
             ))}
+          </div>
+        </section>
+
+        <section className="section repair-index" aria-labelledby="najczestsze-naprawy">
+          <div className="repair-index__heading" data-reveal>
+            <div><p className="eyebrow eyebrow--copper">Mechanika samochodowa</p><h2 id="najczestsze-naprawy">Najczęściej wykonywane naprawy i prace serwisowe.</h2></div>
+            <p>Wybierz obszar, który najlepiej odpowiada objawom lub planowanemu serwisowi. Ostateczny zakres naprawy ustalamy dopiero po sprawdzeniu samochodu.</p>
+          </div>
+          <div className="repair-index__grid">
+            {commonRepairs.map((repair, index) => (
+              <article key={repair.title} data-reveal style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{repair.title}</h3>
+                <p>{repair.text}</p>
+                <a href={repair.href}>Zobacz pełny zakres <i>→</i></a>
+              </article>
+            ))}
+          </div>
+          <div className="repair-index__cta" data-reveal>
+            <p><strong>Nie wiesz, od czego zacząć?</strong> Opisz objawy i powiedz, kiedy pojawia się problem.</p>
+            <a className="button button--copper" href="tel:+48690266302">Porozmawiaj z mechanikiem</a>
           </div>
         </section>
 
@@ -310,8 +403,8 @@ export default function Home() {
 
         <section className="section full-offer" aria-labelledby="pelna-oferta">
           <div className="section-heading" data-reveal>
-            <div><p className="eyebrow eyebrow--copper">Pełna oferta</p><h2 id="pelna-oferta">Zachowujemy wszystkie usługi z pierwotnej strony.</h2></div>
-            <p>Rozwijane kategorie utrzymują porządek na stronie, a jednocześnie dają Google i klientowi pełny obraz rzeczywistej oferty.</p>
+            <div><p className="eyebrow eyebrow--copper">Pełna oferta warsztatu</p><h2 id="pelna-oferta">Mechanika samochodowa, serwis i naprawa silnika.</h2></div>
+            <p>Poniżej znajduje się szczegółowy zakres prac wykonywanych przez Luka Service. Jeśli nie widzisz nazwy swojej usterki, zadzwoń i opisz objawy — podpowiemy, od jakiego sprawdzenia zacząć.</p>
           </div>
           <div className="offer-accordions">
             {serviceGroups.map((group, index) => (
@@ -328,7 +421,7 @@ export default function Home() {
         </section>
 
         <section id="faq" className="faq-section">
-          <div data-reveal><p className="eyebrow eyebrow--copper">Przed wizytą</p><h2>Krótko i konkretnie.</h2></div>
+          <div data-reveal><p className="eyebrow eyebrow--copper">Mechanik Warszawa-Włochy</p><h2>Pytania przed wizytą w warsztacie.</h2></div>
           <div className="faq-list">
             {faqs.map(([question, answer]) => (
               <details key={question} data-reveal>
