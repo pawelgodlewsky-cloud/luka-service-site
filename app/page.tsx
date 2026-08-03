@@ -383,21 +383,26 @@ export default function Home() {
             <div className="estimate-photo__caption"><p className="eyebrow eyebrow--copper">Transparentność</p><h2>Pokazujemy, co znaleźliśmy i dlaczego proponujemy naprawę.</h2></div>
           </div>
           <div className="estimate-copy" data-reveal>
-            <p className="eyebrow eyebrow--copper">Przykładowa wycena</p>
+            <p className="eyebrow eyebrow--copper">Co ustalamy przed naprawą</p>
             <h2>Pełna informacja przed rozpoczęciem pracy.</h2>
-            <p>Zamiast branżowego żargonu - konkret: co wymaga naprawy, co jest pilne, ile może potrwać praca i od czego zależy koszt.</p>
+            <p>
+              Po sprawdzeniu auta dostajesz jasne podsumowanie: co powoduje objawy, które elementy wymagają naprawy teraz, a które można obserwować. Omawiamy zakres pracy, warianty części, przewidywany termin i koszt.
+            </p>
             <div className="estimate-card">
-              <div className="estimate-card__head"><strong>Układ hamulcowy</strong><span>Do akceptacji</span></div>
-              <div><span>Oględziny i dokumentacja</span><strong>w zakresie</strong></div>
-              <div><span>Zalecane prace</span><strong>opisane osobno</strong></div>
-              <div><span>Przewidywany termin</span><strong>po sprawdzeniu</strong></div>
-              <div><span>Koszt</span><strong>przed naprawą</strong></div>
+              <div className="estimate-card__head"><strong>Karta ustaleń</strong><span>Czeka na Twoją zgodę</span></div>
+              <div><span>Rozpoznanie problemu</span><strong>przyczyna i skutki usterki</strong></div>
+              <div><span>Zakres naprawy</span><strong>co robimy teraz, co może poczekać</strong></div>
+              <div><span>Części i materiały</span><strong>dostępne warianty do wyboru</strong></div>
+              <div><span>Termin realizacji</span><strong>przewidywany czas odbioru</strong></div>
+              <div><span>Koszt</span><strong>ustalony przed rozpoczęciem prac</strong></div>
             </div>
+            <p className="estimate-copy__note"><strong>Co, jeśli po demontażu pojawi się dodatkowy problem?</strong> Zatrzymujemy pracę, wyjaśniamy sytuację i aktualizujemy wycenę. Decyzja nadal należy do Ciebie.</p>
             <ul className="estimate-promises">
-              <li><span>01</span>Bez dodatkowych prac bez zgody</li>
-              <li><span>02</span>Warianty części dopasowane do budżetu</li>
-              <li><span>03</span>Kontrola i dokumentacja po naprawie</li>
+              <li><span>01</span>Nie rozszerzamy zakresu bez kontaktu</li>
+              <li><span>02</span>Tłumaczymy różnice między wariantami części</li>
+              <li><span>03</span>Przed odbiorem kontrolujemy efekt naprawy</li>
             </ul>
+            <a className="estimate-copy__link" href="tel:+48690266302">Umów sprawdzenie samochodu <i>→</i></a>
           </div>
         </section>
 
