@@ -1,4 +1,0 @@
-127.0.0.1 - - [03/Aug/2026 16:50:19] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [03/Aug/2026 16:50:19] "GET /site.js HTTP/1.1" 200 -
-127.0.0.1 - - [03/Aug/2026 16:50:19] "GET /hero-workshop.webp HTTP/1.1" 200 -
-127.0.0.1 - - [03/Aug/2026 16:50:19] "GET /assets/index-C3fi25yB.css HTTP/1.1" 200 -
