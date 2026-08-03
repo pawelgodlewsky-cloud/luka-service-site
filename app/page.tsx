@@ -456,10 +456,20 @@ export default function Home() {
               <div><dt>Pomoc z dojazdem</dt><dd>Dostępność ustalamy telefonicznie</dd></div>
             </dl>
           </div>
-          <a className="map-panel" href="https://www.google.com/maps/search/?api=1&query=Pianistów+10B+Warszawa" target="_blank" rel="noreferrer" aria-label="Otwórz lokalizację Luka Service w Mapach Google" data-reveal>
-            <span className="map-grid" /><span className="map-orbit" /><span className="map-pin"><i>L</i></span>
-            <span className="map-label"><strong>Luka Service</strong><small>Warszawa Włochy • ul. Pianistów 10B</small></span>
-          </a>
+          <div className="map-panel" data-reveal>
+            <iframe
+              className="map-panel__frame"
+              src="https://www.google.com/maps?q=Pianist%C3%B3w%2010B%2C%2002-403%20Warszawa&output=embed"
+              title="Mapa dojazdu do warsztatu Luka Service przy ul. Pianistów 10B w Warszawie"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a className="map-label" href="https://www.google.com/maps/search/?api=1&query=Pianistów+10B+Warszawa" target="_blank" rel="noreferrer">
+              <span><strong>Luka Service</strong><small>Warszawa Włochy • ul. Pianistów 10B</small></span>
+              <i aria-hidden="true">↗</i>
+            </a>
+          </div>
         </section>
       </main>
 

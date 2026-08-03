@@ -253,16 +253,13 @@ img { display: block; max-width: 100%; }
 .contact-data div { padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); }
 .contact-data dt { color: var(--copper-light); font: 700 9px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; }
 .contact-data dd { margin: 11px 0 0; font: 600 17px/1.45 var(--display); }
-.map-panel { position: relative; display: grid; min-height: 720px; place-items: center; overflow: hidden; background: #dde4e3; color: var(--ink); }
-.map-grid { position: absolute; inset: -80px; opacity: .45; background: repeating-linear-gradient(35deg, transparent 0 62px, #91a0a5 63px 67px, transparent 68px 125px), repeating-linear-gradient(145deg, transparent 0 95px, #b9c3c5 96px 100px, transparent 101px 162px); transform: rotate(-4deg); transition: transform 1.2s ease; }
-.map-panel:hover .map-grid { transform: rotate(-2deg) scale(1.04); }
-.map-orbit { position: absolute; width: min(48vw, 500px); aspect-ratio: 1; border: 1px solid rgba(201,130,77,.5); border-radius: 50%; box-shadow: 0 0 0 90px rgba(201,130,77,.05), 0 0 0 180px rgba(201,130,77,.04); }
-.map-pin { position: relative; z-index: 2; display: grid; width: 86px; height: 86px; place-items: center; border-radius: 50% 50% 50% 8px; color: var(--ink); background: var(--copper); transform: rotate(-45deg); box-shadow: 0 20px 44px rgba(13,27,35,.22); animation: map-float 3s ease-in-out infinite; }
-.map-pin i { display: grid; width: 45px; height: 45px; place-items: center; border-radius: 50%; background: var(--white); font: 700 18px/1 var(--display); font-style: normal; transform: rotate(45deg); }
-@keyframes map-float { 50% { transform: rotate(-45deg) translate(8px,-8px); } }
-.map-label { position: absolute; z-index: 3; left: 50%; top: calc(50% + 92px); min-width: 310px; padding: 18px 24px; text-align: center; background: rgba(255,254,250,.88); border-radius: 10px; box-shadow: var(--shadow); transform: translateX(-50%); backdrop-filter: blur(12px); }
+.map-panel { position: relative; min-height: 720px; overflow: hidden; background: #dde4e3; color: var(--ink); }
+.map-panel__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map-label { position: absolute; z-index: 3; left: 28px; right: 28px; bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 22px; color: var(--ink); background: rgba(255,254,250,.94); border: 1px solid rgba(13,27,35,.1); border-radius: 10px; box-shadow: var(--shadow); backdrop-filter: blur(12px); transition: background-color .25s ease, transform .25s ease; }
+.map-label:hover { background: var(--white); transform: translateY(-3px); }
 .map-label strong { display: block; font: 600 18px/1 var(--display); }
 .map-label small { display: block; margin-top: 7px; color: var(--slate); font-size: 11px; }
+.map-label i { display: grid; flex: 0 0 38px; width: 38px; height: 38px; place-items: center; color: var(--white); background: var(--copper); border-radius: 50%; font-style: normal; }
 
 .site-footer { display: flex; justify-content: space-between; gap: 24px; padding: 24px clamp(28px, 5vw, 88px); color: rgba(255,255,255,.52); background: #09171e; border-top: 1px solid rgba(255,255,255,.08); font-size: 11px; }
 .site-footer a { color: var(--copper-light); }
@@ -324,7 +321,6 @@ img { display: block; max-width: 100%; }
   .contact-section { grid-template-columns: 1fr; }
   .contact-copy { padding: 70px 28px; }
   .map-panel { min-height: 560px; }
-  .map-orbit { width: 64vw; }
   .site-footer { flex-direction: column; padding-bottom: 34px; }
   .mobile-actions { position: fixed; z-index: 120; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr 1fr; min-height: 64px; color: white; background: var(--ink); box-shadow: 0 -10px 30px rgba(13,27,35,.16); }
   .mobile-actions a { display: grid; place-items: center; font-size: 13px; font-weight: 750; }
@@ -368,7 +364,7 @@ img { display: block; max-width: 100%; }
   .contact-actions { flex-direction: column; }
   .contact-data { grid-template-columns: 1fr; }
   .map-panel { min-height: 480px; }
-  .map-label { min-width: 280px; }
+  .map-label { left: 18px; right: 18px; bottom: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

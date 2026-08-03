@@ -25,6 +25,8 @@ test("server-renders the Luka Service landing page", async () => {
   assert.match(html, /Najpierw sprawdzamy/);
   assert.match(html, /Pełny zakres usług/);
   assert.match(html, /Pianistów 10B/);
+  assert.match(html, /google\.com\/maps\?q=Pianist%C3%B3w%2010B[^\"]+output=embed/);
+  assert.match(html, /Mapa dojazdu do warsztatu Luka Service/);
   assert.match(html, /"@type":"AutoRepair"/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
