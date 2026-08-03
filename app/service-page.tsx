@@ -69,6 +69,15 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
         <Link className="brand" href="/" aria-label="Luka Service, strona główna">
           <img className="brand__logo" src="/brand/luka-service-logo.png" alt="Luka Service" width="900" height="270" />
         </Link>
+        <details className="service-mobile-menu">
+          <summary aria-label="Otwórz menu"><span /><span /></summary>
+          <nav aria-label="Menu podstrony">
+            <Link href="/#uslugi">Wszystkie usługi</Link>
+            <Link href="/#jak-pracujemy">Jak pracujemy</Link>
+            <Link href="/#faq">Pytania</Link>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+        </details>
         <nav className="main-nav service-main-nav" aria-label="Nawigacja">
           <Link href="/#uslugi">Usługi</Link>
           <Link href="/#jak-pracujemy">Jak pracujemy</Link>
@@ -93,9 +102,9 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
               <a className="service-text-link" href="#zakres">Zobacz zakres usługi <i>↓</i></a>
             </div>
             <ul className="service-hero-facts service-enter service-enter--5" aria-label="Najważniejsze informacje">
-              <li><span>01</span>Sprawdzenie przyczyny</li>
-              <li><span>02</span>Koszt przed naprawą</li>
-              <li><span>03</span>Warszawa Włochy</li>
+              <li><span>DIAG</span>Sprawdzenie przyczyny</li>
+              <li><span>KOSZT</span>Wycena przed naprawą</li>
+              <li><span>ADRES</span>Warszawa Włochy</li>
             </ul>
           </div>
           <figure className="service-page-hero__visual service-enter service-enter--2">
@@ -130,9 +139,9 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
             <p>{page.symptomsLead}</p>
           </div>
           <div className="service-symptoms__grid">
-            {page.symptoms.map((symptom, index) => (
+            {page.symptoms.map((symptom) => (
               <article key={symptom.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>OBJAW</span>
                 <h3>{symptom.title}</h3>
                 <p>{symptom.text}</p>
               </article>
@@ -148,9 +157,8 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
             <a className="service-text-link" href="tel:+48690266302">Zapytaj o swoje auto <i>→</i></a>
           </div>
           <div className="service-scope__list">
-            {page.scope.map((item, index) => (
+            {page.scope.map((item) => (
               <article key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
                 <div><h3>{item.title}</h3><p>{item.text}</p></div>
               </article>
             ))}
@@ -182,7 +190,7 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
           <div className="service-estimate__card">
             <p>Przed rozpoczęciem</p>
             <h3>Wiesz, co robimy i dlaczego.</h3>
-            <ul>{page.checklist.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ul>
+            <ul>{page.checklist.map((item) => <li key={item}><span>✓</span>{item}</li>)}</ul>
             <a className="button button--copper" href="tel:+48690266302">Porozmawiaj z mechanikiem</a>
           </div>
         </section>
@@ -209,9 +217,9 @@ export default function ServicePage({ page }: { page: ServicePageData }) {
             <h2 id="powiazane-uslugi">Sprawdź także</h2>
           </div>
           <div className="related-services__grid">
-            {related.map((item, index) => (
+            {related.map((item) => (
               <a key={item.slug} href={`/${item.slug}/`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>USŁUGA</span>
                 <h3>{item.shortTitle}</h3>
                 <p>{item.lead}</p>
                 <strong>Zobacz usługę <i>↗</i></strong>

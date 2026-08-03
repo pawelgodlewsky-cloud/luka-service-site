@@ -23,6 +23,8 @@ test("server-renders the Luka Service landing page", async () => {
   assert.match(html, /<html lang="pl">/i);
   assert.match(html, /Mechanik Warszawa Włochy \| Warsztat Luka Service/i);
   assert.match(html, /Najpierw sprawdzamy/);
+  assert.match(html, /Prawdziwy warsztat/);
+  assert.match(html, /Samochód nie odpala/);
   assert.match(html, /Pełny zakres usług/);
   assert.match(html, /Pianistów 10B/);
   assert.match(html, /google\.com\/maps\?q=Pianist%C3%B3w%2010B[^\"]+output=embed/);
@@ -30,6 +32,8 @@ test("server-renders the Luka Service landing page", async () => {
   assert.match(html, /Tak wygląda praca w Luka Service/);
   assert.match(html, /\/workshop\/diagnostyka\.webp/);
   assert.match(html, /"@type":"AutoRepair"/);
+  assert.doesNotMatch(html, />Gwarancja</);
+  assert.equal((html.match(/class="service-card"/g) ?? []).length, 7);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
 
@@ -70,7 +74,10 @@ test("keeps production assets and metadata in place", async () => {
 
   assert.match(page, /data-reveal/);
   assert.match(styles, /prefers-reduced-motion/);
+  assert.match(styles, /\[data-reveal\]\s*\{\s*opacity:\s*1/);
   assert.match(styles, /\.service-card:is\(:hover, :focus-visible\)/);
+  assert.match(styles, /\.service-mobile-menu\[open\]/);
+  assert.match(layout, /@fontsource\/barlow-semi-condensed/);
   assert.match(page, /application\/ld\+json/);
   assert.match(layout, /\/og\.png/);
   assert.match(layout, /canonical/);

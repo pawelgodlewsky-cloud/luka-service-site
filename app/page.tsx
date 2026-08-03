@@ -5,65 +5,51 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     code: "DIA",
-    title: "Diagnostyka i sprawdzenie auta",
-    text: "Kontrolka na desce, trudny rozruch, nierówna praca albo zakup używanego auta. Zaczynamy od sprawdzenia przyczyny, nie od wymiany części w ciemno.",
+    title: "Diagnostyka samochodowa",
+    text: "Kontrolka, trudny rozruch, nierówna praca lub spadek mocy. Odczytujemy dane i szukamy rzeczywistej przyczyny objawu.",
     href: "/diagnostyka-samochodowa-warszawa/",
   },
   {
-    code: "SER",
-    title: "Serwis i części eksploatacyjne",
-    text: "Olej, filtry, płyny, hamulce, zawieszenie, rozrząd i DPF. Wykonujemy bieżący serwis oraz naprawy wynikające ze zużycia podzespołów.",
-    href: "/wymiana-oleju-warszawa-wlochy/",
+    code: "OGL",
+    title: "Sprawdzenie auta przed zakupem",
+    text: "Oględziny mechaniczne, diagnostyka i informacje o usterkach, które mogą oznaczać dodatkowe wydatki po zakupie.",
+    href: "/sprawdzenie-auta-przed-zakupem-warszawa/",
   },
   {
-    code: "MECH",
-    title: "Mechanika i naprawa silnika",
-    text: "Usuwamy usterki silnika, układu chłodzenia, wydechu, kierowniczego i napędu. Zakres prac dobieramy do stanu samochodu i ustalonej przyczyny.",
-    href: "/naprawa-silnika-warszawa/",
-  },
-  {
-    code: "MOB",
-    title: "Pomoc z dojazdem",
-    text: "Samochód nie odpala lub nie może bezpiecznie dojechać do warsztatu? Zadzwoń. Po krótkiej rozmowie ocenimy, czy możemy pomóc na miejscu.",
-    href: "#kontakt",
-  },
-];
-
-const commonRepairs = [
-  {
+    code: "SIL",
     title: "Naprawa silnika",
-    text: "Nierówna praca, wyciek oleju, przegrzewanie lub spadek mocy wymagają sprawdzenia, zanim zacznie się naprawa. Zajmujemy się między innymi uszczelnieniami, głowicą i remontami silnika.",
+    text: "Nierówna praca, wycieki, przegrzewanie i spadek mocy. Zakres naprawy ustalamy dopiero po sprawdzeniu silnika.",
     href: "/naprawa-silnika-warszawa/",
   },
   {
-    title: "Hamulce i elementy bezpieczeństwa",
-    text: "Piszczenie, drgania kierownicy przy hamowaniu, dłuższa droga hamowania lub kontrolka to sygnały, których nie warto odkładać. Sprawdzamy układ i wymieniamy zużyte klocki, tarcze, szczęki oraz elementy hamulca postojowego.",
-    href: "/hamulce-warszawa-wlochy/",
-  },
-  {
-    title: "Zawieszenie i układ kierowniczy",
-    text: "Stuki na nierównościach, luzy i niepewne prowadzenie auta mogą mieć różne przyczyny. Sprawdzamy zawieszenie i układ kierowniczy, a następnie wskazujemy elementy, które faktycznie wymagają wymiany.",
-    href: "/zawieszenie-warszawa-wlochy/",
-  },
-  {
-    title: "Olej, filtry i płyny eksploatacyjne",
-    text: "Dobieramy olej i materiały do konkretnego samochodu. Wymieniamy olej silnikowy, filtry i płyny, a także olej w skrzyni biegów oraz dyferencjałach.",
-    href: "/wymiana-oleju-warszawa-wlochy/",
-  },
-  {
+    code: "ROZ",
     title: "Wymiana rozrządu",
-    text: "Pasek lub łańcuch rozrządu wymaga zakresu dopasowanego do konkretnego silnika. Ustalamy dane auta, właściwe części i czynności przed rozpoczęciem pracy.",
+    text: "Pasek lub łańcuch, właściwy zestaw części i zakres dopasowany do konkretnej wersji silnika.",
     href: "/wymiana-rozrzadu-warszawa/",
   },
   {
-    title: "Sprawdzenie samochodu przed zakupem",
-    text: "Przed zakupem pomagamy ocenić stan samochodu i wychwycić usterki, które mogą oznaczać dodatkowe wydatki. Zakres sprawdzenia ustalamy przed wizytą.",
-    href: "/sprawdzenie-auta-przed-zakupem-warszawa/",
+    code: "HAM",
+    title: "Hamulce",
+    text: "Kontrola oraz wymiana klocków, tarcz, szczęk i elementów hamulca postojowego po obu stronach osi.",
+    href: "/hamulce-warszawa-wlochy/",
+  },
+  {
+    code: "ZAW",
+    title: "Zawieszenie",
+    text: "Sprawdzamy stuki, luzy i niepewne prowadzenie. Wymieniamy tylko elementy, które rzeczywiście tego wymagają.",
+    href: "/zawieszenie-warszawa-wlochy/",
+  },
+  {
+    code: "OLE",
+    title: "Wymiana oleju i filtrów",
+    text: "Dobieramy olej i materiały do konkretnej wersji auta. Możemy połączyć wizytę z wymianą filtrów i płynów.",
+    href: "/wymiana-oleju-warszawa-wlochy/",
   },
 ];
 
 const workshopPhotos = [
   {
+    code: "HAM",
     src: "/workshop/hamulce.webp",
     width: 1000,
     height: 1500,
@@ -71,6 +57,7 @@ const workshopPhotos = [
     label: "Kontrola układu hamulcowego",
   },
   {
+    code: "DIA",
     src: "/workshop/diagnostyka.webp",
     width: 1400,
     height: 933,
@@ -78,6 +65,7 @@ const workshopPhotos = [
     label: "Diagnostyka samochodowa",
   },
   {
+    code: "ZAW",
     src: "/workshop/zawieszenie.webp",
     width: 1000,
     height: 1500,
@@ -85,6 +73,7 @@ const workshopPhotos = [
     label: "Sprawdzenie zawieszenia",
   },
   {
+    code: "SIL",
     src: "/workshop/naprawa-silnika.webp",
     width: 1000,
     height: 1499,
@@ -96,6 +85,7 @@ const workshopPhotos = [
 const serviceGroups = [
   {
     id: "diagnostyka",
+    code: "DIA",
     title: "Diagnostyka samochodowa",
     intro: "Sprawdzenie objawów i podzespołów przed ustaleniem zakresu naprawy.",
     items: [
@@ -114,6 +104,7 @@ const serviceGroups = [
   },
   {
     id: "obsluga-serwisowa",
+    code: "SER",
     title: "Serwis i naprawy eksploatacyjne",
     intro: "Bieżąca obsługa auta, układy bezpieczeństwa i wymiana zużytych części.",
     items: [
@@ -143,6 +134,7 @@ const serviceGroups = [
   },
   {
     id: "mechanika",
+    code: "MECH",
     title: "Mechanika ogólna",
     intro: "Naprawy mechaniczne oraz demontaż i montaż elementów samochodu.",
     items: [
@@ -158,6 +150,7 @@ const serviceGroups = [
   },
   {
     id: "naprawa-silnika",
+    code: "SIL",
     title: "Naprawa silnika",
     intro: "Uszczelnienia, rozrząd, głowica i kompleksowe naprawy jednostki napędowej.",
     items: [
@@ -179,11 +172,8 @@ const faqs = [
   ["Czy można wycenić naprawę przez telefon?", "Przez telefon możemy wstępnie ustalić, czego dotyczy problem i jaki powinien być pierwszy krok. Dokładna wycena jest możliwa po sprawdzeniu auta, ponieważ podobne objawy mogą mieć różne przyczyny."],
   ["Co się dzieje, jeśli podczas naprawy wyjdzie dodatkowa usterka?", "Zatrzymujemy prace i kontaktujemy się z Tobą. Wyjaśniamy, co zostało wykryte, podajemy koszt i czekamy na decyzję. Nie rozszerzamy zlecenia bez zgody."],
   ["Czy mechanik może przyjechać do samochodu?", "Taką możliwość ustalamy indywidualnie. Podczas rozmowy pytamy o objawy, model auta i lokalizację. Na tej podstawie oceniamy, czy możemy pomóc na miejscu, czy samochód powinien trafić do warsztatu."],
-  ["Jak przygotować się do wizyty w warsztacie?", "Podaj markę, model, rocznik i silnik samochodu. Opisz, kiedy pojawia się problem, czy auto było ostatnio naprawiane i jakie kontrolki się świecą. Jeśli masz wyniki wcześniejszej diagnostyki lub historię serwisową, zabierz je ze sobą."],
   ["Czy sprawdzacie samochody przed zakupem?", "Tak. Pomagamy ocenić stan auta i wskazujemy usterki, które mogą wymagać dalszej diagnostyki lub naprawy. Zakres sprawdzenia oraz termin ustalamy telefonicznie przed wizytą."],
   ["Czy trzeba wcześniej umówić wizytę?", "Najlepiej zadzwonić przed przyjazdem. Dzięki temu możemy zebrać podstawowe informacje o samochodzie, zaplanować czas na sprawdzenie i podać najbliższy możliwy termin."],
-  ["Czy obsługujecie kierowców z Ursusa i Ochoty?", "Tak. Warsztat znajduje się przy ul. Pianistów 10B na warszawskich Włochach. Dojeżdżają do nas również kierowcy z Ursusa, Ochoty i pobliskich dzielnic."],
-  ["Kiedy warto sprawdzić rozrząd?", "Rozrząd należy kontrolować zgodnie z zaleceniami producenta. Umów sprawdzenie także wtedy, gdy nie znasz historii serwisowej auta, słyszysz niepokojące odgłosy albo zbliża się termin lub przebieg przewidziany do wymiany."],
 ];
 
 const jsonLd = {
@@ -217,7 +207,7 @@ const jsonLd = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Usługi Luka Service",
-    itemListElement: commonRepairs.map((service) => ({
+    itemListElement: services.map((service) => ({
       "@type": "Offer",
       itemOffered: {
         "@type": "Service",
@@ -320,14 +310,14 @@ export default function Home() {
             <p className="hero__promise hero-sequence hero-sequence--5"><i /> Nie doliczamy dodatkowych prac bez kontaktu</p>
           </div>
           <div className="service-rail" aria-hidden="true">
-            <span>PROCES / DIAGNOZA</span><i /><b />
+            <span>DIAGNOZA / WYCENA / NAPRAWA</span><i /><b />
           </div>
           <a className="scroll-cue" href="#uslugi" aria-label="Przewiń do usług"><span>Przewiń</span><i /></a>
         </section>
 
         <section className="trust-strip" aria-label="Najważniejsze informacje">
           <div><span className="trust-strip__icon">✓</span><strong>Koszt do akceptacji</strong><small>zanim rozpoczniemy naprawę</small></div>
-          <div><span className="trust-strip__icon">◇</span><strong>Gwarancja</strong><small>na wykonaną usługę i części</small></div>
+          <div><span className="trust-strip__icon">◉</span><strong>Prawdziwy warsztat</strong><small>zdjęcia z codziennej pracy</small></div>
           <div><span className="trust-strip__icon">↗</span><strong>Pomoc z dojazdem</strong><small>dostępność ustalamy telefonicznie</small></div>
           <div><span className="trust-strip__icon">L</span><strong>Warszawa Włochy</strong><small>ul. Pianistów 10B</small></div>
         </section>
@@ -354,7 +344,7 @@ export default function Home() {
         <section id="uslugi" className="section services-section">
           <div className="section-heading" data-reveal>
             <div><p className="eyebrow eyebrow--copper">Zakres usług</p><h2>W czym możemy pomóc?</h2></div>
-            <p>Wybierz rodzaj usługi, żeby przejść do szczegółowego zakresu prac. Jeśli nie wiesz, do której kategorii pasuje usterka, zadzwoń i opisz objawy.</p>
+            <p>Wybierz konkretną usługę. Jeśli nie znasz nazwy usterki, zadzwoń i opisz, co dzieje się z samochodem.</p>
           </div>
           <div className="service-cards">
             {services.map((service, index) => (
@@ -366,26 +356,9 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </section>
-
-        <section className="section repair-index" aria-labelledby="najczestsze-naprawy">
-          <div className="repair-index__heading" data-reveal>
-            <div><p className="eyebrow eyebrow--copper">Najczęstsze naprawy</p><h2 id="najczestsze-naprawy">Od zwykłego serwisu po poważniejszą naprawę.</h2></div>
-            <p>Objaw nie zawsze wskazuje jedną konkretną część. Dlatego przed wyceną sprawdzamy samochód i ustalamy, co rzeczywiście wymaga naprawy.</p>
-          </div>
-          <div className="repair-index__grid">
-            {commonRepairs.map((repair, index) => (
-              <article key={repair.title} data-reveal style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{repair.title}</h3>
-                <p>{repair.text}</p>
-                <a href={repair.href}>Sprawdź zakres prac <i>→</i></a>
-              </article>
-            ))}
-          </div>
-          <div className="repair-index__cta" data-reveal>
-            <p><strong>Nie musisz znać nazwy usterki.</strong> Powiedz, co słyszysz, widzisz lub czujesz podczas jazdy.</p>
-            <a className="button button--copper" href="tel:+48690266302">Zadzwoń do warsztatu</a>
+          <div className="service-help-strip" data-reveal>
+            <div><span>MOB</span><p><strong>Samochód nie odpala?</strong> Zadzwoń. Po krótkiej rozmowie ocenimy, czy możemy pomóc z dojazdem.</p></div>
+            <a className="button button--copper" href="tel:+48690266302">Zapytaj o pomoc</a>
           </div>
         </section>
 
@@ -401,7 +374,7 @@ export default function Home() {
             {workshopPhotos.map((photo, index) => (
               <figure key={photo.src} data-reveal style={{ "--delay": `${index * 80}ms` } as React.CSSProperties}>
                 <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" />
-                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{photo.label}</figcaption>
+                <figcaption><span>{photo.code}</span>{photo.label}</figcaption>
               </figure>
             ))}
           </div>
@@ -442,10 +415,8 @@ export default function Home() {
             <div className="estimate-card">
               <div className="estimate-card__head"><strong>Ustalenia przed naprawą</strong><span>Do akceptacji</span></div>
               <div><span>Co jest uszkodzone</span><strong>przyczyna i możliwe skutki</strong></div>
-              <div><span>Co trzeba zrobić</span><strong>prace pilne i te, które mogą poczekać</strong></div>
-              <div><span>Jakich części użyjemy</span><strong>dostępne warianty i różnice między nimi</strong></div>
-              <div><span>Kiedy auto będzie gotowe</span><strong>przewidywany termin odbioru</strong></div>
-              <div><span>Ile zapłacisz</span><strong>koszt zaakceptowany przed naprawą</strong></div>
+              <div><span>Co trzeba zrobić</span><strong>zakres pilny i prace, które mogą poczekać</strong></div>
+              <div><span>Koszt i termin</span><strong>kwota do akceptacji oraz przewidywany odbiór</strong></div>
             </div>
             <p className="estimate-copy__note"><strong>A jeśli po demontażu znajdziemy kolejną usterkę?</strong> Zatrzymamy pracę i zadzwonimy. Wyjaśnimy, co się zmieniło, podamy nowy koszt i poczekamy na Twoją decyzję.</p>
             <ul className="estimate-promises">
@@ -463,10 +434,10 @@ export default function Home() {
             <p>Rozwiń wybraną kategorię, aby zobaczyć listę usług dostępnych w Luka Service. Nie znalazłeś swojej usterki? Zadzwoń, opisz objawy i zapytaj o możliwość naprawy.</p>
           </div>
           <div className="offer-accordions">
-            {serviceGroups.map((group, index) => (
-              <details id={group.id} key={group.id} className="offer-group" data-reveal open={index === 0}>
+            {serviceGroups.map((group) => (
+              <details id={group.id} key={group.id} className="offer-group" data-reveal>
                 <summary>
-                  <span className="offer-group__number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="offer-group__number">{group.code}</span>
                   <span><strong>{group.title}</strong><small>{group.intro}</small></span>
                   <i aria-hidden="true">+</i>
                 </summary>
