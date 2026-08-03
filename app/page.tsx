@@ -7,19 +7,19 @@ const services = [
     code: "DIA",
     title: "Diagnostyka i sprawdzenie auta",
     text: "Kontrolka na desce, trudny rozruch, nierówna praca albo zakup używanego auta. Zaczynamy od sprawdzenia przyczyny, nie od wymiany części w ciemno.",
-    href: "#diagnostyka",
+    href: "/diagnostyka-samochodowa-warszawa/",
   },
   {
     code: "SER",
     title: "Serwis i części eksploatacyjne",
     text: "Olej, filtry, płyny, hamulce, zawieszenie, rozrząd i DPF. Wykonujemy bieżący serwis oraz naprawy wynikające ze zużycia podzespołów.",
-    href: "#obsluga-serwisowa",
+    href: "/wymiana-oleju-warszawa-wlochy/",
   },
   {
     code: "MECH",
     title: "Mechanika i naprawa silnika",
     text: "Usuwamy usterki silnika, układu chłodzenia, wydechu, kierowniczego i napędu. Zakres prac dobieramy do stanu samochodu i ustalonej przyczyny.",
-    href: "#mechanika",
+    href: "/naprawa-silnika-warszawa/",
   },
   {
     code: "MOB",
@@ -31,34 +31,34 @@ const services = [
 
 const commonRepairs = [
   {
-    title: "Naprawa silnika i rozrządu",
-    text: "Nierówna praca, wyciek oleju, przegrzewanie lub spadek mocy wymagają sprawdzenia, zanim zacznie się naprawa. Zajmujemy się między innymi rozrządem, uszczelnieniami, głowicą i remontami silnika.",
-    href: "#naprawa-silnika",
+    title: "Naprawa silnika",
+    text: "Nierówna praca, wyciek oleju, przegrzewanie lub spadek mocy wymagają sprawdzenia, zanim zacznie się naprawa. Zajmujemy się między innymi uszczelnieniami, głowicą i remontami silnika.",
+    href: "/naprawa-silnika-warszawa/",
   },
   {
     title: "Hamulce i elementy bezpieczeństwa",
     text: "Piszczenie, drgania kierownicy przy hamowaniu, dłuższa droga hamowania lub kontrolka to sygnały, których nie warto odkładać. Sprawdzamy układ i wymieniamy zużyte klocki, tarcze, szczęki oraz elementy hamulca postojowego.",
-    href: "#obsluga-serwisowa",
+    href: "/hamulce-warszawa-wlochy/",
   },
   {
     title: "Zawieszenie i układ kierowniczy",
     text: "Stuki na nierównościach, luzy i niepewne prowadzenie auta mogą mieć różne przyczyny. Sprawdzamy zawieszenie i układ kierowniczy, a następnie wskazujemy elementy, które faktycznie wymagają wymiany.",
-    href: "#obsluga-serwisowa",
+    href: "/zawieszenie-warszawa-wlochy/",
   },
   {
     title: "Olej, filtry i płyny eksploatacyjne",
     text: "Dobieramy olej i materiały do konkretnego samochodu. Wymieniamy olej silnikowy, filtry i płyny, a także olej w skrzyni biegów oraz dyferencjałach.",
-    href: "#obsluga-serwisowa",
+    href: "/wymiana-oleju-warszawa-wlochy/",
   },
   {
-    title: "DPF, układ wydechowy i turbina",
-    text: "Spadek mocy, dymienie i częste komunikaty o filtrze DPF mogą mieć kilka źródeł. Sprawdzamy układ przed podjęciem decyzji o czyszczeniu DPF, naprawie wydechu lub wymianie turbosprężarki.",
-    href: "#obsluga-serwisowa",
+    title: "Wymiana rozrządu",
+    text: "Pasek lub łańcuch rozrządu wymaga zakresu dopasowanego do konkretnego silnika. Ustalamy dane auta, właściwe części i czynności przed rozpoczęciem pracy.",
+    href: "/wymiana-rozrzadu-warszawa/",
   },
   {
     title: "Sprawdzenie samochodu przed zakupem",
     text: "Przed zakupem pomagamy ocenić stan samochodu i wychwycić usterki, które mogą oznaczać dodatkowe wydatki. Zakres sprawdzenia ustalamy przed wizytą.",
-    href: "#diagnostyka",
+    href: "/sprawdzenie-auta-przed-zakupem-warszawa/",
   },
 ];
 
